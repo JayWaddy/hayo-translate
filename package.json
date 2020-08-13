@@ -1,34 +1,35 @@
 {
   "name": "hayo-app",
-  "version": "1.0.0",
-  "description": "Planco translator app",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3"
+  },
   "scripts": {
-    "test": "test"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JayWaddy/Hayo-App.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "keywords": [
-    "Planco",
-    "translator",
-    "app",
-    "Planet",
-    "Coaster",
-    "Frontier"
-  ],
-  "author": "Jay Waddy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JayWaddy/Hayo-App/issues"
-  },
-  "homepage": "https://github.com/JayWaddy/Hayo-App#readme",
-  "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
