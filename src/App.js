@@ -1,9 +1,11 @@
 import React from 'react';
 
-function App() {
+// Styles
+
+// Pages
+
+export default function App() {
   return (
     <h1>Test</h1>
   );
 }
-
-export default App;
