@@ -40,9 +40,10 @@ const GlobalStyle = createGlobalStyle`
     }
     
     /* Defaul text */
-    h1, h2, h3, p, a, li {
+    h1, p, a, li, .button{
         font-family: Arial, Helvetica, sans-serif;
     }
+    
     ul, li , a{
         list-style: none;
         text-decoration: none;
@@ -53,7 +54,12 @@ const GlobalStyle = createGlobalStyle`
         background: ${color.action};
         color: ${color.white};
 
+        width: 75px;
+        height: 45px;
+
         border-radius: 10px;
+
+        cursor: pointer;
     }
 
     /* Light Theme */
