@@ -1,9 +1,15 @@
 import React from 'react'
 
+// Style
+
+
+// Components
+import Navigation from './Navigation';
+
 export default function footer() {
     return (
-        <div>
-            
+        <div id="footer">
+            <Navigation/>
         </div>
     )
 }
