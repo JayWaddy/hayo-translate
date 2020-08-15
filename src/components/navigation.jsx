@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // Style
 import { color } from '../styles/GlobalStyle';
@@ -16,6 +16,7 @@ const Navbar = styled.ul`
     height: ${navbarHeight}px;
 
     li {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -23,71 +24,85 @@ const Navbar = styled.ul`
         width: ${ navbarWidth / 2 }px;
         height: 100%;
         font-size: 12px;
-        
-        z-index: 2;
+        color: ${color.lightSecondaryText};
+
+        transition: 0.2s;
 
         &:hover {
             cursor: pointer;
         }
-
-        .active-page p {
-            color: ${color.white};
-        }
     }
 
-    .nav-child-translate {
-        color: ${(props) => props.trans ? color.white : color.lightSecondaryText};
-    }
-
-    .nav-child-glossary {
-        color: ${(props) => props.gloss ? color.white : color.lightSecondaryText};
+    .active-link li {
+        color: ${color.white};
     }
 `;
 
 const Selector = styled.div`
     position: absolute;
-    width: ${ navbarWidth / 2 }px;
+
+    width: ${navbarWidth / 2}px;
     height: ${navbarHeight}px;
 
     transition: 0.2s;
 `;
 
 export default function Navigation() {
-    // const [trans, setTrans] = useState(true);
-    // const [gloss, setGloss] = useState(false);
+    const [toggle, setToggle] = React.useState(false);
 
-    // const selector = document.querySelector('.nav-selector');
+    const setLinkToTranslate = () => {
+        // Do nothing if link is already active
+        if (toggle === false) return null;
+        
+        moveActiveLink();
+        setToggle(toggle => false);
+    }
 
-    // Actiions
-    // const setPageToTranslate = () => {
-    //     setTrans(!trans);
-    //     setGloss(false);
-    // }
+    const setLinkToGlossary = () => {
+        // Do nothing if link is already active
+        if (toggle === true) return null;
 
-    // const setPageToGlossary = () => {
-    //     setGloss(!gloss);
-    //     setTrans(false);
-    // }
+        moveActiveLink();
+        setToggle(toggle => true);
+    }
 
-    // if (trans) console.log('trans');
-    // if (gloss) console.log('gloss');
+    const moveActiveLink = () => {
+        const selector = document.querySelector('.nav-selector')
+        if (toggle === true) {
+            selector.style.transform = 'translateX(0%)';
+            return;
+        }
+        if (toggle === false) {
+            selector.style.transform = 'translateX(100%)';
+            return;
+        }
+    }
 
-    // Component
     return (
         <>
         <nav>
             <Navbar className="component">
                 <Selector className="nav-selector button"/>
-                <li 
-                className="nav-child-translate active-page"
+                <NavLink 
+                exact
+                to="/"
+                activeClassName="active-link"
+                onClick={setLinkToTranslate}
                 >
-                    <Link to="/">Translate</Link> 
-                </li>
-                <li 
-                className="nav-child-glossary"
+                    <li 
+                    className="nav-child-translate active-page"
+                    >Translate</li>
+                </NavLink> 
+                <NavLink 
+                exact
+                to="/glossary"
+                activeClassName="active-link"
+                onClick={setLinkToGlossary}
                 >
-                    <Link to="/glossary">Glossary</Link>
-                </li>
+                    <li 
+                    className="nav-child-glossary"
+                    >Glossary</li>
+                </NavLink>
             </Navbar>
         </nav>
         </>
