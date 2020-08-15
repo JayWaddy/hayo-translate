@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 // Styles
 import GlobalStyle from './styles/GlobalStyle';
+import { AppContainer } from './styles/Containers';
 
 // Pages
 import Translate from './pages/Translate';
@@ -14,8 +15,8 @@ import Footer from './components/Footer';
 export default function App() {
   return (
     <>
-      <div className="light-theme">
-        <GlobalStyle/>
+      <GlobalStyle/>
+      <AppContainer className="light-theme">
         <Router>
           <Switch>
             <Route exact path='/' component={Translate}/>
@@ -23,7 +24,7 @@ export default function App() {
           </Switch>
           <Footer/>
         </Router>
-      </div>
+      </AppContainer>
     </>
   );
 }

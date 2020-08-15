@@ -1,15 +1,22 @@
-import React from 'react'
-
-// Style
-
+import React from 'react';
+import styled from 'styled-components';
 
 // Components
 import Navigation from './Navigation';
 
-export default function footer() {
+const FooterContainer = styled.footer`
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 50px;
+`;
+
+export default function Footer() {
     return (
-        <div id="footer">
+        <FooterContainer id="footer">
             <Navigation/>
-        </div>
+        </FooterContainer>
     )
 }
