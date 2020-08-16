@@ -11,7 +11,7 @@ export const color = {
     darkBackground: 'rgb(41, 43, 51)',
 
     // Element colors
-    lightCTA: 'rgb(235, 235, 235)',
+    lightCTA: 'rgb(220, 220, 230)',
     lightDefaultElement: 'rgb(235, 235, 240)',
         lightFocusElement: 'rgba(0, 111, 255, 0.15)',
 
@@ -42,19 +42,24 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         overflow: hidden;
+        /* background: ${color.darkBackground}; */
     }
     
     /* Defaul text */
-    h1, p, a, li, span, textarea, .button{
+    h1, p, a, li, span, em, textarea, .button{
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    span, .button {
+    span, em, .button {
         font-size: 12px;
     }
 
     p, textarea {
         font-size: 20px;
+    }
+
+    p {
+        margin-right: 5px;
     }
 
     ul, li , a{
@@ -67,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
         resize: none;
     }
 
-    /* Button */
+    /* Buttons */
     .button {
         display: flex;
         align-items: center;
@@ -85,25 +90,48 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
     }
 
-    /* Cancel button */
+    .cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: ${color.lightCTA};
+        color: ${color.lightDefaultText};
+
+        width: 75px;
+        height: 45px;
+        margin-left: auto;
+
+        border: none;
+        border-radius: 0 10px 10px 0;
+
+        cursor: pointer;
+    }
+
+    /* List items */
+    .list-item {
+        display: flex;
+        flex-direction: row;
+		align-items: center;
+
+        height: 45px;
+		margin-left: 15px;
+        margin-bottom: 10px;
+	}
+
+    /* Cancel icon */
     .cancel-icon {
         display: flex;
         align-items: center;
         justify-content: center;
 
-        width: 25px;
+        width: 30px;
         height: 30px;
 
         cursor: pointer;
 
         span {
-            position: absolute;
-
-            background: ${color.action};
-            border-radius: 10px; 
-
-            width: 25px;
-            height: 3px;
+            
 
             transform: rotate(45deg);
 
@@ -111,6 +139,18 @@ const GlobalStyle = createGlobalStyle`
                 transform: rotate(-45deg);
             }
         }
+    }
+
+    /* Icons */
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 25px;
+        height: 25px;
+
+        cursor: pointer;
     }
 
     /* Light Theme */
@@ -123,7 +163,7 @@ const GlobalStyle = createGlobalStyle`
             color: ${color.lightDefaultText};
         }
 
-        span {
+        span, em {
             color: ${color.lightSecondaryText}
         }
 
@@ -143,7 +183,7 @@ const GlobalStyle = createGlobalStyle`
                 color: ${color.lightFocusText};
             }
 
-            span {
+            span, em {
                 color: ${color.lightFocusSencondaryText}
             }
         }
@@ -153,30 +193,35 @@ const GlobalStyle = createGlobalStyle`
     .dark-theme {
         body {
             background: ${color.darkBackground};
-        }
-
-        p {
             color: ${color.darkDefaultText};
         }
 
-        span {
+        p, a {
+            color: ${color.darkDefaultText};
+        }
+
+        span, em {
             color: ${color.darkSecondaryText}
         }
 
         .component {
             background: ${color.darkDefaultElement};
+            border-radius: 10px;
 
             .cta {
                 background: ${color.darkCTA};
             }
+        }
 
-            .focus {
-                background: ${color.darkFocusElement};
-                color: ${color.lightFocusText};
+        .focus {
+            background: ${color.darkFocusElement};
 
-                span {
-                    color: ${color.darkFocusSencondaryText}
-                }
+            p {
+                color: ${color.darkFocusText}
+            }
+
+            span, em {
+                color: ${color.darkFocusSencondaryText}
             }
         }
     }

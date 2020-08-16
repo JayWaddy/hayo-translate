@@ -12,9 +12,5 @@ export const AppContainer = styled.div`
 
 export const ContentContainer = styled.div`
     display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    /* height: 85%; */
-    margin: 15px 20px 15px 15px;
+    justify-content: center;
 `;

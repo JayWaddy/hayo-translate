@@ -4,16 +4,25 @@ import styled from 'styled-components';
 // Styles
 import { ContentContainer } from '../styles/Containers';
 
-const TranslatorContainer = styled.div`
+// SVGs
+import CancelIcon from '../components/CancelIcon';
+
+export const TranslateContainer = styled.div`
     width: 100%;
-    min-height: 435px;
+    min-height: vh;
+
+    .input-content, .output-content {
+        flex-direction: column;
+        margin: 15px 20px 15px 15px;
+    }
+
+    .input-content {
+        width: 100%;
+    }
 `;
 
 const IntputContainer = styled.div`
     display: flex;
-
-    width: 100%;
-    min-height: 200px;
     margin-top: 20px;
 `;
 
@@ -61,7 +70,7 @@ const Input = styled.textarea`
 
 const Output = styled.div`
     width: 100%;
-    min-height: 150px;
+    min-height: 100px;
 
     p {
         overflow-wrap: break-word;
@@ -72,24 +81,23 @@ const Output = styled.div`
 
 export default function Translate() {
     return (
-        <TranslatorContainer className="translate-page-content">
+        <TranslateContainer className="translate-page-content">
             <IntputContainer className="input component">
                 <ContentContainer className="input-content">
                     <LanguageHeading>
                         <span>English</span>
                         <div className="cancel-icon">
-                            <span></span>
-                            <span></span>
+                            <CancelIcon/>
                         </div>
                     </LanguageHeading>
-                    <Input className="user-input" rows="5"/>
+                    <Input className="user-input" rows="4"/>
                     <InputCount className="input-counter">
                         <span>0 / 250</span>
                     </InputCount>
                 </ContentContainer>
             </IntputContainer>
             <OutputContainer className="output component focus">
-                <ContentContainer>
+                <ContentContainer className="output-content">
                     <LanguageHeading>
                         <span>Planco</span>
                     </LanguageHeading>
@@ -99,6 +107,6 @@ export default function Translate() {
                 </ContentContainer>
             </OutputContainer>
             <CopyButton className="button">Copy</CopyButton>
-        </TranslatorContainer>
-    )
+        </TranslateContainer>
+    );
 }

@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// SVGs
+import MenuIcon from '../components/MenuIcon';
+
 const AppTitle = styled.span`
     position: absolute;
 
@@ -19,13 +22,10 @@ const HeaderContainer = styled.div`
     margin-top: 5%;
 `;
 
-const MenuIcon = styled.div`
+const MenuIconContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    width: 45px;
-    height: 45px;
 
     cursor: pointer;
 
@@ -81,10 +81,9 @@ export default function Header() {
     return (
         <HeaderContainer className="header">
             <AppTitle className="app-title">Hayo Translate</AppTitle>
-            <MenuIcon className="menu-icon">
-                <span></span>
-                <span></span>
-            </MenuIcon>
+            <MenuIconContainer>
+                <MenuIcon/>
+            </MenuIconContainer>
             <SearchIcon className="search-icon button">
                 <span></span>
                 <span></span>
