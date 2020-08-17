@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function ArrowIcon() {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20.785" height="16.226" viewBox="0 0 20.785 16.226"><g transform="translate(18.872 7.102) rotate(180)"><line x2="17.172" transform="translate(0.2 -1.006)" fill="none" stroke="#000" strokeLinecap="round" strokeWidth="3"/><line y1="6.006" x2="7.172" transform="translate(0.2 -7.011)" fill="none" stroke="#000" strokeLinecap="round" strokeWidth="3"/><line x2="7.172" y2="5.994" transform="translate(0.2 -1.006)" fill="none" stroke="#000" strokeLinecap="round" strokeWidth="3"/></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="9.805" height="13.56" viewBox="0 0 9.805 13.56"><g transform="translate(-226.03 -370.387)"><g transform="translate(233.722 381.834) rotate(180)"><line y1="4.671" x2="5.579" transform="translate(0 0)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="3"/><line x2="5.579" y2="4.663" transform="translate(0 4.671)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="3"/></g></g></svg>
     );
 }

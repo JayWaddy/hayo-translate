@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Styles
-import { ContentContainer } from '../styles/Containers';
-
 // SVGs
 import CancelIcon from '../components/CancelIcon';
 
@@ -13,7 +10,7 @@ export const TranslateContainer = styled.div`
 
     .input-content, .output-content {
         flex-direction: column;
-        margin: 15px 20px 15px 15px;
+        margin: 15px;
     }
 
     .input-content {
@@ -32,13 +29,19 @@ const OutputContainer = styled.div`
     width: 100%;
     height: auto;
     margin-top: 10px;
+
+    .output-content {
+        width: 100%;
+    }
 `;
 
 const LanguageHeading = styled.div`
     display: flex;
     justify-content: space-between;
 
-    width: 100%;
+    .cancel-icon {
+        cursor: pointer;
+    }
 `;
 
 const InputCount = styled.div`
@@ -46,16 +49,14 @@ const InputCount = styled.div`
     display: flex;
     justify-content: right;
 
-    height: 100%;
-
     span {
         text-align: right;
         margin-top: auto;
     }
 `;
 
-const CopyButton = styled.button`
-    margin: 10px 0 0 auto;
+const CopyButton = styled.div`
+    justify-content: right;;
 `;
 
 const Input = styled.textarea`
@@ -83,30 +84,30 @@ export default function Translate() {
     return (
         <TranslateContainer className="translate-page-content">
             <IntputContainer className="input component">
-                <ContentContainer className="input-content">
+                <div className="input-content">
                     <LanguageHeading>
                         <span>English</span>
-                        <div className="cancel-icon">
-                            <CancelIcon/>
-                        </div>
+                        <div className="cancel-icon"><CancelIcon/></div>
                     </LanguageHeading>
                     <Input className="user-input" rows="4"/>
                     <InputCount className="input-counter">
                         <span>0 / 250</span>
                     </InputCount>
-                </ContentContainer>
+                </div>
             </IntputContainer>
             <OutputContainer className="output component focus">
-                <ContentContainer className="output-content">
+                <div className="output-content">
                     <LanguageHeading>
                         <span>Planco</span>
                     </LanguageHeading>
                     <Output>
                         <p className="user-output"></p>
                     </Output>
-                </ContentContainer>
+                    <CopyButton>
+                        <button className="cta">Copy</button>
+                    </CopyButton>
+                </div>
             </OutputContainer>
-            <CopyButton className="button">Copy</CopyButton>
         </TranslateContainer>
     );
 }

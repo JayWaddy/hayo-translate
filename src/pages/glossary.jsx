@@ -1,23 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Styles
-import { ContentContainer } from '../styles/Containers';
-
-// Components
-// import GlossaryCard from '../components/GlossaryCard';
-
 // SVGs
 import ArrowIcon from '../components/ArrowIcon';
 import DropDownIcon from '../components/DropDownIcon';
+
+import GlossaryCard from '../components/GlossaryCard';
 
 export const GlossaryContainer = styled.div`
     width: 100%;
 	height: auto;
 `;
 
-const SearchByLetter = styled.div`
-	margin-top: 20px;
+const LetterSearch = styled.div`
+	width: 90px;
+	margin: 20px auto 0 auto;
 
 	.letter-dropdown {
 		display: flex;
@@ -41,27 +38,30 @@ export default function Glossary() {
 	return (
 		<>
 			<GlossaryContainer className="glossary-page-content">
-				<SearchByLetter className="search-by-letter component">
-					<ContentContainer className="list-item">
-						<span>Seearch by letter</span>
+				<LetterSearch className="letter-search component">
+					<div className="list-item">
+						<p>Z</p>
 						<button className="cta">
 							<span className="letter-dropdown">
-								<p>Z</p>
 								<span>
 									<DropDownIcon/>
 								</span>
 							</span>
 						</button>
-					</ContentContainer>
-				</SearchByLetter>
+					</div>
+				</LetterSearch>
 				<GlossaryContent>
 					<div className="glossary-content">
-						Content will be displayed here.
+						<GlossaryCard/>
+						<GlossaryCard/>
+						<GlossaryCard/>
+						<GlossaryCard/>
+						<GlossaryCard/>
 					</div>
 					<LinksContainer>
 					<div className="component">
 						<div className="list-item">
-							<span>Visit the official Planco site</span>
+							<span>About Hayo</span>
 							<button className="cta">
 								<ArrowIcon/>
 							</button>
@@ -69,7 +69,7 @@ export default function Glossary() {
 					</div>
 					<div className="component">
 						<div className="list-item">
-							<span>More about Hayo</span>
+							<span>Official Planco site</span>
 							<button className="cta">
 								<ArrowIcon/>
 							</button>

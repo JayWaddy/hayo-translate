@@ -4,6 +4,9 @@ import styled from 'styled-components';
 // SVGs
 import MenuIcon from '../components/MenuIcon';
 
+// Components
+import SearchBar from '../components/SearchBar';
+
 const AppTitle = styled.span`
     position: absolute;
 
@@ -44,39 +47,6 @@ const MenuIconContainer = styled.div`
     }
 `;
 
-const SearchIcon = styled.div`
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
-
-    padding-left: 8px;
-
-    span {
-        &:first-child {
-            width: 18px;
-            height: 18px;
-
-            border: solid rgb(255, 255, 255) 3px;
-            border-radius: 50%;
-        }
-
-        &:last-child {
-            background: rgb(255, 255, 255);
-
-            width: 9px;
-            height: 3px;
-
-            border-radius: 10px;
-
-            transform: rotate(45deg) translate(1px, 10px);
-        }
-    }
-`;
-
 export default function Header() {
     return (
         <HeaderContainer className="header">
@@ -84,10 +54,7 @@ export default function Header() {
             <MenuIconContainer>
                 <MenuIcon/>
             </MenuIconContainer>
-            <SearchIcon className="search-icon button">
-                <span></span>
-                <span></span>
-            </SearchIcon>
+            <SearchBar/>
         </HeaderContainer>
     );
 }

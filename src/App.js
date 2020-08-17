@@ -2,8 +2,7 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 // Styles
-import GlobalStyle from './styles/GlobalStyle';
-import { AppContainer } from './styles/Containers';
+import GlobalStyle, { AppContainer } from './styles/GlobalStyle';
 
 // Pages
 import Translate from './pages/Translate';

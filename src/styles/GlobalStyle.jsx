@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 // Color scheme
 export const color = {
@@ -11,11 +12,9 @@ export const color = {
     darkBackground: 'rgb(41, 43, 51)',
 
     // Element colors
-    lightCTA: 'rgb(220, 220, 230)',
-    lightDefaultElement: 'rgb(235, 235, 240)',
+    lightDefaultElement: 'rgb(240, 240, 245)',
         lightFocusElement: 'rgba(0, 111, 255, 0.15)',
 
-    darkCTA: 'rgb(67, 69, 82)',
     darkDefaultElement: 'rgbs(67, 69, 82, 0.5)',
         darkFocusElement: 'rgba(0, 111, 255, 0.5)',
 
@@ -32,6 +31,17 @@ export const color = {
         darkFocusSeccondaryText: 'rgba(0, 162, 255, 0.5)'
 }
 
+// Containers
+export const AppContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+`;
+
 // Global styles
 const GlobalStyle = createGlobalStyle`
     * {
@@ -42,7 +52,6 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         overflow: hidden;
-        /* background: ${color.darkBackground}; */
     }
     
     /* Defaul text */
@@ -72,39 +81,20 @@ const GlobalStyle = createGlobalStyle`
         resize: none;
     }
 
-    /* Buttons */
-    .button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        background: ${color.action};
-        color: ${color.white};
-
-        width: 75px;
-        height: 45px;
-
-        border: none;
-        border-radius: 10px;
-
-        cursor: pointer;
-    }
-
+    /* CTA */
     .cta {
         display: flex;
         align-items: center;
         justify-content: center;
 
-        background: ${color.lightCTA};
-        color: ${color.lightDefaultText};
+        background: none;
 
-        width: 75px;
-        height: 45px;
+        width: 50px;
+        height: 25px;
         margin-left: auto;
 
         border: none;
-        border-radius: 0 10px 10px 0;
-
+        border-left: solid rgba(0, 0, 0, 0.15) 1px;
         cursor: pointer;
     }
 
@@ -118,28 +108,6 @@ const GlobalStyle = createGlobalStyle`
 		margin-left: 15px;
         margin-bottom: 10px;
 	}
-
-    /* Cancel icon */
-    .cancel-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 30px;
-        height: 30px;
-
-        cursor: pointer;
-
-        span {
-            
-
-            transform: rotate(45deg);
-
-            &:first-child {
-                transform: rotate(-45deg);
-            }
-        }
-    }
 
     /* Icons */
     .icon {
@@ -170,21 +138,18 @@ const GlobalStyle = createGlobalStyle`
         .component {
             background-color: ${color.lightDefaultElement};
             border-radius: 10px;
-
-            .cta {
-                background: ${color.lightCTA};
-            }
         }
 
         .focus {
             background: ${color.lightFocusElement};
 
-            p {
+            p, button {
                 color: ${color.lightFocusText};
             }
 
-            span, em {
-                color: ${color.lightFocusSencondaryText}
+            span, em, button {
+                color: ${color.lightFocusSencondaryText};
+                border-color: rgba(16, 92, 191, 0.15);
             }
         }
     }
