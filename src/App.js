@@ -9,8 +9,7 @@ import Translate from './pages/Translate';
 import Glossary from './pages/Glossary';
 
 // Components
-// import Menu from './components/Menu';
-import SearchBar from './components/SearchBar';
+import Header from './components/Header';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -19,8 +18,7 @@ export default function App() {
       <GlobalStyle/>
       <AppContainer className="light-theme">
         <Router>
-          <SearchBar/>
-          {/* <Menu/> */}
+          <Header/>
           <Switch>
             <Route exact path='/' component={Translate}/>
             <Route exact path='/glossary' component={Glossary}/>

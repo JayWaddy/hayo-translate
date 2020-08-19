@@ -10,7 +10,6 @@ export const TranslateContainer = styled.div`
 
     .input-content, .output-content {
         flex-direction: column;
-        margin: 15px;
     }
 
     .input-content {
@@ -20,7 +19,7 @@ export const TranslateContainer = styled.div`
 
 const IntputContainer = styled.div`
     display: flex;
-    margin-top: 20px;
+    margin-top: 10px;
 `;
 
 const OutputContainer = styled.div`
@@ -90,7 +89,7 @@ export default function Translate() {
     return (
         <TranslateContainer className="translate-page-content">
             <IntputContainer className="input component">
-                <div className="input-content">
+                <div className="input-content content">
                     <LanguageHeading>
                         <span>English</span>
                         <div className="cancel-icon cta"><CancelIcon/></div>
@@ -102,7 +101,7 @@ export default function Translate() {
                 </div>
             </IntputContainer>
             <OutputContainer className="output component focus">
-                <div className="output-content">
+                <div className="output-content content">
                     <LanguageHeading>
                         <span>Planco</span>
                     </LanguageHeading>

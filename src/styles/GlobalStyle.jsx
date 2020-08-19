@@ -59,7 +59,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    span, em, .button {
+    span, em, input, .button {
         font-size: 12px;
     }
 
@@ -96,6 +96,11 @@ const GlobalStyle = createGlobalStyle`
         border: none;
         border-left: solid rgba(0, 0, 0, 0.15) 1px;
         cursor: pointer;
+    }
+
+    /* Content wrapper */
+    .content {
+        margin: 15px;
     }
 
     /* List items */

@@ -14,7 +14,7 @@ export const GlossaryContainer = styled.div`
 
 const LetterSearch = styled.div`
 	width: 90px;
-	margin: 20px auto 0 auto;
+	margin: 10px auto 0 auto;
 
 	.letter-dropdown {
 		display: flex;
@@ -24,14 +24,13 @@ const LetterSearch = styled.div`
 
 const GlossaryContent = styled.div`
 	overflow-y: scroll;
-	margin-top: 20px;
 	margin-bottom: 10px;
 
 	max-height: 68vh;
 `;
 
 const LinksContainer = styled.div`
-	margin-top: 20px;
+	margin-top: 10px;
 `;
 
 export default function Glossary() {
