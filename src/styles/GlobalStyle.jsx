@@ -51,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        overflow: hidden;
+        overflow: none scroll;
     }
     
     /* Defaul text */

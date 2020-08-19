@@ -41,6 +41,8 @@ const LanguageHeading = styled.div`
 
     .cancel-icon {
         cursor: pointer;
+
+        transform: translateX(15px);
     }
 `;
 
@@ -56,7 +58,11 @@ const InputCount = styled.div`
 `;
 
 const CopyButton = styled.div`
-    justify-content: right;;
+    justify-content: right;
+
+    button {
+        transform: translateX(10px);
+    }
 `;
 
 const Input = styled.textarea`
@@ -87,7 +93,7 @@ export default function Translate() {
                 <div className="input-content">
                     <LanguageHeading>
                         <span>English</span>
-                        <div className="cancel-icon"><CancelIcon/></div>
+                        <div className="cancel-icon cta"><CancelIcon/></div>
                     </LanguageHeading>
                     <Input className="user-input" rows="4"/>
                     <InputCount className="input-counter">
