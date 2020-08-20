@@ -51,11 +51,30 @@ export default function Glossary() {
 				</LetterSearch>
 				<GlossaryContent>
 					<div className="glossary-content">
-						<GlossaryCard/>
-						<GlossaryCard/>
-						<GlossaryCard/>
-						<GlossaryCard/>
-						<GlossaryCard/>
+						<GlossaryCard 
+						eng="Zero" 
+						pos="(num)" 
+						plc="Zoop"
+						pro="Zoop"/>
+					</div>
+					<div className="glossary-content">
+						<GlossaryCard 
+						eng="Zero-g" 
+						pos="(n)" 
+						plc="Zoop-g"
+						pro="Zoop-g"/>
+					</div><div className="glossary-content">
+						<GlossaryCard 
+						eng="Zone" 
+						pos="(n)" 
+						plc="Zinn"
+						pro="Zin"/>
+					</div><div className="glossary-content">
+						<GlossaryCard 
+						eng="Zoom" 
+						pos="(v)" 
+						plc="Zuul"
+						pro="Zool"/>
 					</div>
 					<LinksContainer>
 					<div className="component">

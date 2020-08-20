@@ -136,7 +136,7 @@ const GlobalStyle = createGlobalStyle`
             color: ${color.lightDefaultText};
         }
 
-        span, em {
+        span, em, .light {
             color: ${color.lightSecondaryText}
         }
 

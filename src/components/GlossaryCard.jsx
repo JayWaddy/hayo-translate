@@ -1,12 +1,66 @@
 import React from 'react';
+import styled from 'styled-components';
 
-export default function GlossaryCard() {
+const CardContainer = styled.div`
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    .content {
+        flex-direction: column;
+        padding: 10px 15px;
+
+        margin: 0;
+    }
+`;
+
+const EnglishInfo = styled.div`
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    /* margin-top: 11px; */
+`;
+
+const PlancoInfo = styled.div`
+    width: 100%;
+    margin-top: 10px;
+
+    border-top: solid rgba(0, 0, 0, 0.15) 1px;
+
+    p {
+        margin-top: 10px;
+    }
+`;
+
+export default function GlossaryCard(props) {
+    const [toggle, setToggle] = React.useState(false);
+
+    const Toggle = () => {
+        setToggle(toggle => !toggle);
+    }
+
+    const RevealInfo = (props) => {
+        if (toggle) {
+            return (
+                <PlancoInfo className="more-info">
+                    <p className="light">{props.plc}</p>
+                    <em>{props.pro}</em>
+                </PlancoInfo>
+            );
+        } else {
+            return null;
+        }
+    }
+
     return (
-        <div className="component glossary-card-content">
-            <div className="list-item">
-                <p>Term</p>
-                <em>(pos)</em>
+        <CardContainer className="component glossary-card-content" onClick={Toggle}>
+            <div className="content">
+                <EnglishInfo>
+                    <p>{props.eng}</p>
+                    <em>{props.pos}</em>
+                </EnglishInfo>
+                <RevealInfo show={toggle} plc={props.plc} pro={props.pro}/>
             </div>
-        </div>
+        </CardContainer>
     );
 }
