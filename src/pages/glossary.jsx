@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 // SVGs
 import ArrowIcon from '../components/ArrowIcon';
-import DropDownIcon from '../components/DropDownIcon';
-
+import DropDownMenu from '../components/DropDownMenu';
 import GlossaryCard from '../components/GlossaryCard';
 
 export const GlossaryContainer = styled.div`
@@ -38,16 +37,7 @@ export default function Glossary() {
 		<>
 			<GlossaryContainer className="glossary-page-content">
 				<LetterSearch className="letter-search component">
-					<div className="list-item">
-						<p>Z</p>
-						<button className="cta">
-							<span className="letter-dropdown">
-								<span>
-									<DropDownIcon/>
-								</span>
-							</span>
-						</button>
-					</div>
+					<DropDownMenu/>
 				</LetterSearch>
 				<GlossaryContent>
 					<div className="glossary-content">

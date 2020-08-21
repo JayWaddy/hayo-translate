@@ -114,6 +114,20 @@ const GlobalStyle = createGlobalStyle`
         margin-bottom: 10px;
 	}
 
+    .drop-down {
+        text-align: center;
+
+        width: 90px;
+        padding: 10px;
+        background: ${color.lightDefaultElement};
+
+        cursor: pointer;
+
+        &:hover {
+            background: green;
+        }
+    }
+
     /* Icons */
     .icon {
         display: flex;
