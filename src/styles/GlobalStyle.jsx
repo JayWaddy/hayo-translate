@@ -24,7 +24,6 @@ export const color = {
         lightFocusText: 'rgb(16, 92, 191)',
         lightFocusSencondaryText: 'rgba(16, 92, 191, 0.5)',
 
-
     darkDefaultText: 'rgb(255, 255, 255)',
     darkSeccondaryText: 'rgba(255, 255, 255, 0.5)',
         darkFocusText: 'rgb(0, 162, 255)',
@@ -65,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
 
     p, textarea {
         font-size: 20px;
+        font-weight: bold;
     }
 
     p {
@@ -118,10 +118,14 @@ const GlobalStyle = createGlobalStyle`
         text-align: center;
 
         width: 90px;
-        padding: 10px;
+        padding: 15px;
         background: ${color.lightDefaultElement};
 
         cursor: pointer;
+
+        &:not(:last-child) {
+            border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
+        }
 
         &:hover {
             background: green;

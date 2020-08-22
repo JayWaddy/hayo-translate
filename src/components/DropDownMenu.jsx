@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Scripts
+// import Data from '../scripts/data';
+
 const ListContainer = styled.ul`
     position: absolute;
 
@@ -12,7 +15,7 @@ const ListContainer = styled.ul`
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 `;
 
-export default function DropDownMenu() {
+export default function DropDownMenu(props) {
     const [toggle, setToggle] = React.useState(false);
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 

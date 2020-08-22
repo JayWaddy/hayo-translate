@@ -53,13 +53,15 @@ export default function Glossary() {
 						pos="(n)" 
 						plc="Zoop-g"
 						pro="Zoop-g"/>
-					</div><div className="glossary-content">
+					</div>
+					<div className="glossary-content">
 						<GlossaryCard 
 						eng="Zone" 
 						pos="(n)" 
 						plc="Zinn"
 						pro="Zin"/>
-					</div><div className="glossary-content">
+					</div>
+					<div className="glossary-content">
 						<GlossaryCard 
 						eng="Zoom" 
 						pos="(v)" 

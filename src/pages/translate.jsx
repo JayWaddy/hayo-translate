@@ -4,6 +4,9 @@ import styled from 'styled-components';
 // SVGs
 import CancelIcon from '../components/CancelIcon';
 
+// Scripts
+import Data from '../scripts/data';
+
 export const TranslateContainer = styled.div`
     width: 100%;
     min-height: vh;
@@ -85,8 +88,54 @@ const Output = styled.div`
     }
 `;
 
-export default function Translate() {
+export default function Translate(props) {
+    const [input, setInput] = React.useState('');
+    const [output, setOutput] = React.useState('');
+    const [count, setCount] = React.useState(0);
+
+    const getUserInput = event => {
+        setInput(event.target.value);
+        setCount(event.target.textLength);
+    }
+
+    const InputConversion = event => {
+        // Take user input and store its value to an array that can be compared to Planco matches
+        let userInput = input.split(/(\W+|\s)/);
+        let outputString = '';
+        
+        // Iterate through user input to separate earch term
+        for (let i = 0; i < userInput.length; i++) {
+            const inputText = userInput[i].toLocaleLowerCase();
+            let counter = 0;
+
+            // Iterate through Data to see if there is a match
+            for (let j = 0; j < Data.length; j++) {
+                const match = Data[j].eng.toLocaleLowerCase();
+                const planco = Data[j].plc;
+                
+                // If a match has been found, setOutput to term
+                if (inputText === match) {
+                    // setOutput(output => planco);
+                    outputString += planco;
+                } else {
+                    if (inputText === /\W/){
+                        outputString += planco;
+                    }
+                    counter++;
+                }
+
+                // If there are no matches, return the input
+                if (counter === Data.length) {
+                    outputString += inputText;
+                }
+            }
+        }
+        setOutput(outputString)
+        return <p>{output}</p>
+    }
+
     return (
+        <>
         <TranslateContainer className="translate-page-content">
             <IntputContainer className="input component">
                 <div className="input-content content">
@@ -94,9 +143,15 @@ export default function Translate() {
                         <span>English</span>
                         <div className="cancel-icon cta"><CancelIcon/></div>
                     </LanguageHeading>
-                    <Input className="user-input" rows="4"/>
+                    <Input 
+                    className="user-input" 
+                    onChange={getUserInput}
+                    input={input}
+                    name="textarea"
+                    rows="4"
+                    maxLength="250"/>
                     <InputCount className="input-counter">
-                        <span>0 / 250</span>
+                        <span>{count} / 250</span>
                     </InputCount>
                 </div>
             </IntputContainer>
@@ -106,7 +161,7 @@ export default function Translate() {
                         <span>Planco</span>
                     </LanguageHeading>
                     <Output>
-                        <p className="user-output"></p>
+                        <InputConversion />
                     </Output>
                     <CopyButton>
                         <button className="cta">Copy</button>
@@ -114,5 +169,6 @@ export default function Translate() {
                 </div>
             </OutputContainer>
         </TranslateContainer>
+        </>
     );
 }
