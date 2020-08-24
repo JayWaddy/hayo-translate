@@ -98,6 +98,10 @@ export default function Translate(props) {
         setCount(event.target.textLength);
     }
 
+    const clearInput = () => {
+        setInput(input => '');
+    }
+
     const InputConversion = event => {
         // Take user input and store its value to an array that can be compared to Planco matches
         let userInput = input.split(/(\W+|\s)/);
@@ -130,7 +134,7 @@ export default function Translate(props) {
                 }
             }
         }
-        setOutput(outputString)
+        setOutput(outputString);
         return <p>{output}</p>
     }
 
@@ -141,15 +145,15 @@ export default function Translate(props) {
                 <div className="input-content content">
                     <LanguageHeading>
                         <span>English</span>
-                        <div className="cancel-icon cta"><CancelIcon/></div>
+                        <div className="cancel-icon cta" onClick={clearInput}><CancelIcon/></div>
                     </LanguageHeading>
                     <Input 
                     className="user-input" 
                     onChange={getUserInput}
-                    input={input}
+                    value={input}
                     name="textarea"
                     rows="4"
-                    maxLength="250"/>
+                    maxLength="250">{input}</Input>
                     <InputCount className="input-counter">
                         <span>{count} / 250</span>
                     </InputCount>
