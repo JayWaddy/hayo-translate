@@ -19,6 +19,7 @@ const SearchInput = styled.input`
         font-style: italic;
     }
 
+    width: 100%;
     height: 25px;
     margin-right: 15px;
 `;

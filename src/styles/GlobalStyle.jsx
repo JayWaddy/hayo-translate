@@ -89,7 +89,7 @@ const GlobalStyle = createGlobalStyle`
 
         background: none;
 
-        width: 50px;
+        min-width: 50px;
         height: 25px;
         margin-left: auto;
 
