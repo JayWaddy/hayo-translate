@@ -128,7 +128,8 @@ const GlobalStyle = createGlobalStyle`
         }
 
         &:hover {
-            background: green;
+            background: ${color.action};
+            color: ${color.white}
         }
     }
 

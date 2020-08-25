@@ -18,7 +18,6 @@ const EnglishInfo = styled.div`
     align-items: center;
 
     width: 100%;
-    /* margin-top: 11px; */
 `;
 
 const PlancoInfo = styled.div`
@@ -33,11 +32,8 @@ const PlancoInfo = styled.div`
 `;
 
 export default function GlossaryCard(props) {
+    // const [active, setActive] = React.useState(true);
     const [toggle, setToggle] = React.useState(false);
-
-    const Toggle = () => {
-        setToggle(toggle => !toggle);
-    }
 
     const RevealInfo = (props) => {
         if (toggle) {
@@ -53,7 +49,7 @@ export default function GlossaryCard(props) {
     }
 
     return (
-        <CardContainer className="component glossary-card-content" onClick={Toggle}>
+        <CardContainer className="component glossary-card-content" onClick={() => setToggle(toggle => !toggle)}>
             <div className="content">
                 <EnglishInfo>
                     <p>{props.eng}</p>

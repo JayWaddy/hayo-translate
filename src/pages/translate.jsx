@@ -98,10 +98,6 @@ export default function Translate(props) {
         setCount(event.target.textLength);
     }
 
-    const clearInput = () => {
-        setInput(input => '');
-    }
-
     const InputConversion = event => {
         // Take user input and store its value to an array that can be compared to Planco matches
         let userInput = input.split(/(\W+|\s)/);
@@ -145,7 +141,7 @@ export default function Translate(props) {
                 <div className="input-content content">
                     <LanguageHeading>
                         <span>English</span>
-                        <div className="cancel-icon cta" onClick={clearInput}><CancelIcon/></div>
+                        <div className="cancel-icon cta" onClick={() => setInput(input => '')}><CancelIcon/></div>
                     </LanguageHeading>
                     <Input 
                     className="user-input" 
