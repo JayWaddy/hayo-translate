@@ -103,12 +103,12 @@ export default function Translate(props) {
         let userInput = input.split(/(\W+|\s)/);
         let outputString = '';
         
-        // Iterate through user input to separate earch term
+        // Iterate through user input to isolate earch term
         for (let i = 0; i < userInput.length; i++) {
             const inputText = userInput[i].toLocaleLowerCase();
             let counter = 0;
 
-            // Iterate through Data to see if there is a match
+            // Iterate through Data to see if terms match
             for (let j = 0; j < Data.length; j++) {
                 const match = Data[j].eng.toLocaleLowerCase();
                 const planco = Data[j].plc;
@@ -130,8 +130,8 @@ export default function Translate(props) {
                 }
             }
         }
-        setOutput(outputString);
-        return <p>{output}</p>
+        setTimeout(() => setOutput(outputString), 0);
+        return <p>{output}</p>;
     }
 
     return (

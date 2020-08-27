@@ -32,7 +32,6 @@ const PlancoInfo = styled.div`
 `;
 
 export default function GlossaryCard(props) {
-    // const [active, setActive] = React.useState(true);
     const [toggle, setToggle] = React.useState(false);
 
     const RevealInfo = (props) => {

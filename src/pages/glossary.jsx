@@ -6,7 +6,7 @@ import ArrowIcon from '../components/ArrowIcon';
 import GlossaryCard from '../components/GlossaryCard';
 
 // Scripts
-// import Data from '../scripts/data';
+import Data from '../scripts/data';
 
 export const GlossaryContainer = styled.div`
     width: 100%;
@@ -37,7 +37,10 @@ const LinksContainer = styled.div`
 const DropDownContainer = styled.div`
 	position: relative;
 	margin-top: 10px;
-	/* margin-bottom: 0; */
+
+	button {
+		margin-left: 7px;
+	}
 
 	.component {
 		display: flex;
@@ -79,7 +82,7 @@ export default function Glossary() {
         onClick={() => {
             setActive(letter); 
             setToggle(false);
-            }}>
+		}}>
             {letter}
         </li>
     ));
@@ -92,14 +95,34 @@ export default function Glossary() {
         } else {
             return null;
         }
-    }
-	const RenderContent = event => {
-		// Determine which letter is active
-		// Iterate through Data
-		// If Data begins with the active letter, load each term
-		// If Data does not begin with the active letter, return null
+	}
 
-		return null;
+	const RenderContent = event => {
+		let cards = [];
+		let counter = 0;
+		// Iterate through Data and render cards for each active letter
+		for (let i = 0; i < Data.length; i++) {
+			// If Data begins with the active letter, load each term
+			if (Data[i].eng.charAt(0) === active) {
+				cards.push(
+					<li key={i}>
+						<GlossaryCard
+						eng={Data[i].eng}
+						pos={Data[i].pos}
+						plc={Data[i].plc}
+						pro={Data[i].pro}
+						/>
+					</li>
+				);
+			} 
+			// If Data does not begin with the active letter, "No results found."
+			else {
+				if (counter === Data.length){
+					console.log('nothiing...')
+				}
+			}
+		}
+		return <ul>{cards}</ul>
 	}
 
 	return (
@@ -112,22 +135,15 @@ export default function Glossary() {
 					</button>
 				</div>
 				<ListContainer>
-					<List onBlur={() => setToggle(false)}/>
+					<List/>
 				</ListContainer>
             </DropDownContainer>
-
-			
 			<GlossaryContainer className="glossary-page-content">
 				<LetterSearch className="letter-search component">
 				</LetterSearch>
 				<GlossaryContent>
-					<RenderContent/>
+					<RenderContent className="glossary-content"/>
 					<div className="glossary-content">
-						<GlossaryCard 
-						eng="Test Card" 
-						pos="(n)" 
-						plc="Kyew Dacho"
-						pro="kyoo da-choo"/>
 					</div>
 					<LinksContainer>
 					<div className="component">
