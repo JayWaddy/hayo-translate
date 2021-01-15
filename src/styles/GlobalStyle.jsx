@@ -15,7 +15,7 @@ export const color = {
     lightDefaultElement: 'rgb(240, 240, 245)',
         lightFocusElement: 'rgba(0, 111, 255, 0.15)',
 
-    darkDefaultElement: 'rgbs(67, 69, 82, 0.5)',
+    darkDefaultElement: 'rgba(67, 69, 82, 0.5)',
         darkFocusElement: 'rgba(0, 111, 255, 0.5)',
 
     // Text colors

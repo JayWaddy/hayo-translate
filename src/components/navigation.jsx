@@ -49,17 +49,11 @@ export default function Navigation() {
     const [toggle, setToggle] = React.useState(false);
 
     const setToTranslate = () => {
-        // Do nothing if link is already active
-        if (toggle === false) return null;
-        
-        setToggle(toggle => false);
+        return !toggle ?  null : setToggle(() => false);
     }
 
     const setToGlossary = () => {
-        // Do nothing if link is already active
-        if (toggle === true) return null;
-
-        setToggle(toggle => true);
+        return toggle ? null : setToggle(() => true);
     }
 
     return (

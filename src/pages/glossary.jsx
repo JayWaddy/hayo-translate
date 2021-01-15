@@ -74,8 +74,8 @@ export default function Glossary() {
 	const [active, setActive]  = React.useState(letters[0]);
 	const [toggle, setToggle] = React.useState(false);
 	
-	// Dropdown Menu
-    const ListItems = letters.map((letter, key) => (
+	// Items in dropdown menu
+    const ListItems = letters.map((letter, key) => 
         <li 
         className="drop-down"
         key={key}
@@ -85,43 +85,29 @@ export default function Glossary() {
 		}}>
             {letter}
         </li>
-    ));
-    
-    const List = () => {
-        if (toggle) {
-            return (
-                <ul>{ListItems}</ul>
-            );
-        } else {
-            return null;
-        }
-	}
+    );
+	
+	// Render dropdown menu
+    const List = () => toggle ? <ul>{ListItems}</ul> : null;
 
-	const RenderContent = event => {
+	// Render glossary cards
+	const RenderContent = () => {
 		let cards = [];
-		let counter = 0;
-		// Iterate through Data and render cards for each active letter
-		for (let i = 0; i < Data.length; i++) {
-			// If Data begins with the active letter, load each term
-			if (Data[i].eng.charAt(0) === active) {
+
+		Data.map((entry, key) => {
+			return entry.eng.charAt(0) === active ?
 				cards.push(
-					<li key={i}>
-						<GlossaryCard
-						eng={Data[i].eng}
-						pos={Data[i].pos}
-						plc={Data[i].plc}
-						pro={Data[i].pro}
+					<li key={key}>
+						<GlossaryCard 
+						eng={entry.eng}
+						pos={entry.pos}
+						plc={entry.plc}
+						pro={entry.pro}
 						/>
 					</li>
-				);
-			} 
-			// If Data does not begin with the active letter, "No results found."
-			else {
-				if (counter === Data.length){
-					console.log('nothiing...')
-				}
-			}
-		}
+				)
+				: null;
+		});
 		return <ul>{cards}</ul>
 	}
 
@@ -129,7 +115,7 @@ export default function Glossary() {
 		<>
 			<DropDownContainer>
 				<div className="component">
-					<p className="active-letter" >{active}</p>
+					<p className="active-letter">{active}</p>
 					<button className="cta" onClick={() => setToggle(toggle => !toggle)}>
 						<svg xmlns="http://www.w3.org/2000/svg" width="13.56" height="9.805" viewBox="0 0 13.56 9.805"><g transform="translate(383.947 -226.03) rotate(90)"><g transform="translate(233.722 381.834) rotate(180)"><line y1="4.671" x2="5.579" transform="translate(0 0)" fill="none" stroke="#000" strokeLinecap="round" strokeWidth="3"/><line x2="5.579" y2="4.663" transform="translate(0 4.671)" fill="none" stroke="#000" strokeLinecap="round" strokeWidth="3"/></g></g></svg>
 					</button>
@@ -139,30 +125,27 @@ export default function Glossary() {
 				</ListContainer>
             </DropDownContainer>
 			<GlossaryContainer className="glossary-page-content">
-				<LetterSearch className="letter-search component">
-				</LetterSearch>
+				<LetterSearch className="letter-search component"/>
 				<GlossaryContent>
 					<RenderContent className="glossary-content"/>
-					<div className="glossary-content">
-					</div>
 					<LinksContainer>
-					<div className="component">
-						<div className="list-item">
-							<span>About Hayo</span>
-							<button className="cta">
-								<ArrowIcon/>
-							</button>
+						<div className="component">
+							<div className="list-item">
+								<span>About Hayo</span>
+								<button className="cta">
+									<ArrowIcon/>
+								</button>
+							</div>
 						</div>
-					</div>
-					<div className="component">
-						<div className="list-item">
-							<span>Official Planco site</span>
-							<button className="cta">
-								<ArrowIcon/>
-							</button>
+						<div className="component">
+							<div className="list-item">
+								<span>Official Planco site</span>
+								<button className="cta">
+									<ArrowIcon/>
+								</button>
+							</div>
 						</div>
-					</div>
-				</LinksContainer>
+					</LinksContainer>
 				</GlossaryContent>
 			</GlossaryContainer>
 		</>

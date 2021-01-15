@@ -35,16 +35,12 @@ export default function GlossaryCard(props) {
     const [toggle, setToggle] = React.useState(false);
 
     const RevealInfo = (props) => {
-        if (toggle) {
-            return (
-                <PlancoInfo className="more-info">
-                    <p className="light">{props.plc}</p>
-                    <em>{props.pro}</em>
-                </PlancoInfo>
-            );
-        } else {
-            return null;
-        }
+        return toggle ?
+            <PlancoInfo className="more-info">
+                <p className="light">{props.plc}</p>
+                <em>{props.pro}</em>
+            </PlancoInfo> 
+            : null;
     }
 
     return (

@@ -89,8 +89,8 @@ const Output = styled.div`
 `;
 
 export default function Translate(props) {
-    const [input, setInput] = React.useState('');
-    const [output, setOutput] = React.useState('');
+    const [input, setInput] = React.useState("");
+    const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);
 
     const getUserInput = event => {
@@ -99,38 +99,34 @@ export default function Translate(props) {
     }
 
     const InputConversion = event => {
-        // Take user input and store its value to an array that can be compared to Planco matches
         let userInput = input.split(/(\W+|\s)/);
-        let outputString = '';
-        
+        let outputString = "";
+
         // Iterate through user input to isolate earch term
-        for (let i = 0; i < userInput.length; i++) {
-            const inputText = userInput[i].toLocaleLowerCase();
+        userInput.map(input => {
+            const inputText = input.toLowerCase();
             let counter = 0;
 
             // Iterate through Data to see if terms match
-            for (let j = 0; j < Data.length; j++) {
-                const match = Data[j].eng.toLocaleLowerCase();
-                const planco = Data[j].plc;
-                
+            return Data.map(entry => {
+                const match = entry.eng.toLowerCase();
+                const planco = entry.plc;
+
                 // If a match has been found, setOutput to term
-                if (inputText === match) {
-                    // setOutput(output => planco);
-                    outputString += planco;
-                } else {
-                    if (inputText === /\W/){
-                        outputString += planco;
-                    }
-                    counter++;
-                }
+                inputText === match ?
+                    outputString += planco
+                    : inputText === /\W/ ?
+                        outputString += planco
+                        : counter++;
 
                 // If there are no matches, return the input
-                if (counter === Data.length) {
-                    outputString += inputText;
-                }
-            }
-        }
-        setTimeout(() => setOutput(outputString), 0);
+                return counter === Data.length ?
+                    outputString += inputText
+                    : null
+            });
+        });
+
+        setOutput(outputString);
         return <p>{output}</p>;
     }
 
@@ -149,7 +145,9 @@ export default function Translate(props) {
                     value={input}
                     name="textarea"
                     rows="4"
-                    maxLength="250">{input}</Input>
+                    maxLength="250">
+                        {input}
+                    </Input>
                     <InputCount className="input-counter">
                         <span>{count} / 250</span>
                     </InputCount>
@@ -161,7 +159,7 @@ export default function Translate(props) {
                         <span>Planco</span>
                     </LanguageHeading>
                     <Output>
-                        <InputConversion />
+                        <InputConversion/>
                     </Output>
                     <CopyButton>
                         <button className="cta">Copy</button>
