@@ -13,7 +13,7 @@ const IconContainer = styled.div`
     cursor: pointer;
 `;
 
-export default function MenuIcon (props) {
+export default function MenuButton (props) {
     const [toggle, setToggle] = React.useState(false);
 
     const ToggleMenu = () => setToggle(toggle => !toggle);

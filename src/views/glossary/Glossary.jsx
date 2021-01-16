@@ -1,81 +1,30 @@
 import React from 'react';
-import styled from 'styled-components';
 
 // SVGs
-import ArrowIcon from '../components/ArrowIcon';
-import GlossaryCard from '../components/GlossaryCard';
+import ArrowIcon from "../../components/ArrowIcon";
+import EntryCard from './components/EntryCard';
 
 // Scripts
-import Data from '../scripts/data';
+import Data from '../../scripts/data';
 
-export const GlossaryContainer = styled.div`
-    width: 100%;
-	height: auto;
-`;
+// Styles
+import {
+	GlossaryContent,
+	GlossaryContainer,
+	DropDownContainer,
+	LinksContainer,
+	ListContainer,
+	LetterSearch,
+} from "./styles/GlossaryStyles";
 
-const LetterSearch = styled.div`
-	width: 90px;
-	margin: 10px auto 0 auto;
-
-	.letter-dropdown {
-		display: flex;
-		align-items: center;
-	}
-`;
-
-const GlossaryContent = styled.div`
-	overflow-y: scroll;
-	margin-bottom: 10px;
-
-	max-height: 68vh;
-`;
-
-const LinksContainer = styled.div`
-	margin-top: 10px;
-`;
-
-const DropDownContainer = styled.div`
-	position: relative;
-	margin-top: 10px;
-
-	button {
-		margin-left: 7px;
-	}
-
-	.component {
-		display: flex;
-		align-items: center;
-
-		width: 90px;
-		height: 45px;
-	}
-
-	.active-letter {
-		margin-left: auto;
-	}
-`;
-
-const ListContainer = styled.ul`
-    position: absolute;
-
-    width: 90px;
-    max-height: 80vw;
-	margin-top: 10px;
-
-    overflow-y: scroll;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-`;
-
-
-export default function Glossary() {
+export default () => {
 	const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 	const [active, setActive]  = React.useState(letters[0]);
 	const [toggle, setToggle] = React.useState(false);
 	
 	// Items in dropdown menu
-    const ListItems = letters.map((letter, key) => 
+    const ListItems = letters.map((letter, key) => (
         <li 
         className="drop-down"
         key={key}
@@ -85,7 +34,7 @@ export default function Glossary() {
 		}}>
             {letter}
         </li>
-    );
+	));
 	
 	// Render dropdown menu
     const List = () => toggle ? <ul>{ListItems}</ul> : null;
@@ -98,7 +47,7 @@ export default function Glossary() {
 			return entry.eng.charAt(0) === active ?
 				cards.push(
 					<li key={key}>
-						<GlossaryCard 
+						<EntryCard 
 						eng={entry.eng}
 						pos={entry.pos}
 						plc={entry.plc}
@@ -108,6 +57,7 @@ export default function Glossary() {
 				)
 				: null;
 		});
+
 		return <ul>{cards}</ul>
 	}
 

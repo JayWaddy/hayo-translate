@@ -10,7 +10,7 @@ const MenuContainer = styled.div`
     z-index: 5;
 `;
 
-export default function Menu() {
+export default () => {
     return (
         <MenuContainer>
             

@@ -1,37 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const CardContainer = styled.div`
-    cursor: pointer;
-    margin-bottom: 10px;
+// Styles
+import {
+    CardContainer,
+    EnglishInfo,
+    PlancoInfo
+} from "./styles/EntryCardStyles";
 
-    .content {
-        flex-direction: column;
-        padding: 10px 15px;
-
-        margin: 0;
-    }
-`;
-
-const EnglishInfo = styled.div`
-    display: flex;
-    align-items: center;
-
-    width: 100%;
-`;
-
-const PlancoInfo = styled.div`
-    width: 100%;
-    margin-top: 10px;
-
-    border-top: solid rgba(0, 0, 0, 0.15) 1px;
-
-    p {
-        margin-top: 10px;
-    }
-`;
-
-export default function GlossaryCard(props) {
+export default function EntryCard(props) {
     const [toggle, setToggle] = React.useState(false);
 
     const RevealInfo = (props) => {

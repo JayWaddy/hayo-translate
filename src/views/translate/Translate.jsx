@@ -1,94 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
 
 // SVGs
-import CancelIcon from '../components/CancelIcon';
+import CancelIcon from '../../components/CancelIcon';
 
 // Scripts
-import Data from '../scripts/data';
+import Data from '../../scripts/data';
 
-export const TranslateContainer = styled.div`
-    width: 100%;
-    min-height: vh;
+// Styles
+import {
+    TranslateContainer, 
+    IntputContainer, 
+    OutputContainer, 
+    LanguageHeading, 
+    InputCount, 
+    CopyButton, 
+    Input, 
+    Output
+} from "./styles/TranslateStyles";
 
-    .input-content, .output-content {
-        flex-direction: column;
-    }
-
-    .input-content {
-        width: 100%;
-    }
-`;
-
-const IntputContainer = styled.div`
-    display: flex;
-    margin-top: 10px;
-`;
-
-const OutputContainer = styled.div`
-    display: flex;
-
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
-
-    .output-content {
-        width: 100%;
-    }
-`;
-
-const LanguageHeading = styled.div`
-    display: flex;
-    justify-content: space-between;
-
-    .cancel-icon {
-        cursor: pointer;
-
-        transform: translateX(15px);
-    }
-`;
-
-const InputCount = styled.div`
-    position: inherit;
-    display: flex;
-    justify-content: right;
-
-    span {
-        text-align: right;
-        margin-top: auto;
-    }
-`;
-
-const CopyButton = styled.div`
-    justify-content: right;
-
-    button {
-        transform: translateX(10px);
-    }
-`;
-
-const Input = styled.textarea`
-    background: none;
-    font-size: 20px;
-
-    width: 100%;
-    margin-top: 10px;
-
-    border: none;
-`;
-
-const Output = styled.div`
-    width: 100%;
-    min-height: 100px;
-
-    p {
-        overflow-wrap: break-word;
-        overflow-y: auto;
-        content: '';
-    }
-`;
-
-export default function Translate(props) {
+export default props => {
     const [input, setInput] = React.useState("");
     const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);
@@ -98,7 +28,7 @@ export default function Translate(props) {
         setCount(event.target.textLength);
     }
 
-    const InputConversion = event => {
+    const InputConversion = () => {
         let userInput = input.split(/(\W+|\s)/);
         let outputString = "";
 
@@ -137,7 +67,7 @@ export default function Translate(props) {
                 <div className="input-content content">
                     <LanguageHeading>
                         <span>English</span>
-                        <div className="cancel-icon cta" onClick={() => setInput(input => '')}><CancelIcon/></div>
+                        <div className="cancel-icon cta" onClick={() => setInput(() => "")}><CancelIcon/></div>
                     </LanguageHeading>
                     <Input 
                     className="user-input" 

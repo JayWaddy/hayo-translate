@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Components
-import MenuIcon from '../components/MenuIcon';
+import MenuButton from "./MenuButton"
 import SearchBar from '../components/SearchBar';
 
 const HeaderContainer = styled.div`
@@ -18,7 +18,7 @@ const HeaderContainer = styled.div`
 export default function Header() {
     return (
         <HeaderContainer className="header">
-            <MenuIcon/>
+            <MenuButton/>
             <SearchBar/>
         </HeaderContainer>
     );
